@@ -1,0 +1,63 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tiz Trivia</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Loading Screen -->
+    <div id="loadingScreen" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: #4B0082; display: flex; align-items: center; justify-content: center; z-index: 1000;">
+        <img src="https://i.postimg.cc/3JVp6xjP/spy2.png" alt="Loading Image" style="width: 200px; height: auto;">
+    </div>
+
+    <!-- Updated logo section -->
+    <div id="logo" style="text-align: center; display: flex; align-items: center; justify-content: center; gap: 10px;">
+        <img src="https://i.postimg.cc/3JVp6xjP/spy2.png" alt="Icon" style="width: 50px; height: auto;">
+        <span id="title" style="font-size: 48px; font-weight: bold; color: white;">Tiz</span>
+        <br>
+        <span id="motto" style="font-size: 18px; font-weight: bold; color: white;">Where curiosity meets challenge</span>
+    </div>
+
+    <!-- Dropdown to select topic -->
+    <div id="topicSelection" style="text-align: center;">
+        <select id="topic">
+            <option value="" disabled selected>Select Topic</option>
+            <option value="movies">Movies</option>
+            <option value="sports">Sports</option>
+            <option value="animals">Animals</option>
+            <option value="tech_luxury">Tech and Luxury</option>
+            <option value="geography">Geography</option>
+            <option value="general">General Knowledge</option>
+        </select>
+        <button id="startBtn">Start Trivia</button>
+    </div>
+
+    <!-- Trivia question and answers container -->
+    <div class="trivia-container" style="display: none;">
+        <div id="progress" style="text-align: center; margin: 10px 0; font-weight: bold;"></div>
+        <div class="question" style="text-align: center;">
+            <h2 id="question"></h2>
+        </div>
+        <div class="answers" style="text-align: center;">
+            <button class="answer-btn"></button>
+            <button class="answer-btn"></button>
+            <button class="answer-btn"></button>
+            <button class="answer-btn"></button>
+        </div>
+        <p id="result" style="text-align: center;"></p>
+        <button id="nextBtn" style="display: none; text-align: center;">Next Question</button>
+        <button id="quitBtn" style="display: none; text-align: center;">Quit Quiz</button>
+    </div>
+
+    <!-- Custom Modal for Alert -->
+    <div id="customAlert" class="modal">
+        <div class="modal-content">
+            <p>Please select a topic before starting the quiz!</p>
+            <button id="closeAlertBtn">OK</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

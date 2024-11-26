@@ -1,0 +1,293 @@
+body {
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(135deg, #4B0082, #800080);
+    color: #fff;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    text-align: center;
+    background-size: cover;
+    user-select: none; /* Disable text selection globally */
+    font-size: 16px; /* Default font size for desktop */
+}
+
+h1 {
+    font-size: 3em; /* Adjusted for scaling */
+    margin-bottom: 20px;
+    font-family: 'Arial', sans-serif;
+    color: #fff;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+select {
+    padding: 12px 20px;
+    font-size: 1.25em; /* Scalable font size */
+    margin-bottom: 30px;
+    background-color: #ffffff;
+    border: 2px solid #4B0082;
+    border-radius: 5px;
+    color: #4B0082;
+    outline: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+select:hover {
+    border-color: #800080;
+}
+
+#startBtn {
+    padding: 15px 30px;
+    background-color: #4B0082;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 10px;
+    font-size: 1.25em; /* Scalable font size */
+    transition: all 0.3s ease;
+    margin-bottom: 30px;
+}
+
+#startBtn:hover {
+    background-color: #800080;
+    transform: scale(1.1);
+}
+
+.trivia-container {
+    display: none;
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    width: 80%;
+    max-width: 600px;
+    position: relative;
+    text-align: center;
+}
+
+.question {
+    font-size: 1.5em; /* Scalable font size */
+    color: #4B0082;
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+
+.answers {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-bottom: 60px; /* Increased margin for better spacing */
+}
+
+.answer-btn {
+    padding: 15px;
+    font-size: 1.25em; /* Scalable font size */
+    background-color: #4B0082;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.answer-btn:hover {
+    background-color: #800080;
+    transform: scale(1.05);
+}
+
+.button-container {
+    display: flex;
+    flex-direction: column; /* Stack buttons vertically */
+    justify-content: center; /* Center buttons vertically */
+    align-items: center; /* Center buttons horizontally */
+    width: 100%;
+    margin-top: 20px; /* Adjust spacing between buttons */
+    position: relative;
+}
+
+#quitBtn, #nextBtn {
+    padding: 10px 20px;
+    background-color: #4B0082; /* Purple background */
+    color: white; /* White text */
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 1em;
+    transition: all 0.3s ease;
+    width: 80%; /* Make buttons take up most of the available width */
+    margin-bottom: 10px; /* Add space between buttons */
+}
+
+#quitBtn:hover, #nextBtn:hover {
+    background-color: #800080; /* Darker purple on hover */
+    transform: scale(1.05); /* Slight grow effect on hover */
+}
+
+#quitBtn {
+    background-color: #4B0082; /* Maintain the same purple color */
+}
+
+#nextBtn {
+    background-color: #4B0082; /* Maintain the same purple color */
+}
+
+#quitBtn:hover, #nextBtn:hover {
+    background-color: #800080; /* Darker purple for hover effect */
+}
+
+
+#progress {
+    font-size: 1.25em; /* Scalable font size */
+    margin-top: 20px;
+    color: black;
+    font-weight: bold;
+}
+
+#result {
+    font-size: 1.5em; /* Scalable font size */
+    color: #4B0082;
+    margin-top: 15px;
+    font-weight: bold;
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.2);
+}
+
+.correct {
+    background-color: #4CAF50 !important;
+}
+
+.incorrect {
+    background-color: #FF4136 !important;
+}
+
+/* Ensure the layout is responsive with flexible font sizes and containers */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 2.5em;
+    }
+
+    select, #startBtn, .answer-btn, #nextBtn, #quitBtn {
+        width: 100%;
+        font-size: 1em;
+    }
+
+    .trivia-container {
+        width: 90%;
+    }
+}
+
+@media (max-width: 600px) {
+    body {
+        font-size: 14px; /* Smaller font size for mobile */
+    }
+
+    /* Adjust button sizes for mobile screens */
+    button {
+        padding: 15px 20px; /* Bigger padding for easier touch */
+        font-size: 1.2em; /* Larger font size for readability */
+    }
+
+    select, button {
+        width: 100%; /* Make buttons and dropdown full width on mobile */
+    }
+
+    /* Adjust layout for smaller screens */
+    .trivia-container {
+        padding: 10px;
+    }
+
+    #progress, #question, .answer-btn {
+        font-size: 1.2em; /* Adjust text size to fit mobile screen */
+    }
+
+    /* Adjust the topic selection dropdown */
+    #topicSelection {
+        padding: 20px 10px;
+    }
+}
+
+/* Modal Background */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6); /* Dark overlay */
+}
+
+/* Modal Content */
+.modal-content {
+    background-color: #fff;
+    color: #4B0082;
+    margin: 15% auto;
+    padding: 20px;
+    border: 2px solid #4B0082;
+    border-radius: 10px;
+    width: 80%;
+    max-width: 300px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Button in Modal */
+#closeAlertBtn {
+    padding: 10px 20px;
+    background-color: #4B0082;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: all 0.3s ease;
+}
+
+#closeAlertBtn:hover {
+    background-color: #800080;
+}
+#homeBtn {
+    padding: 15px 30px;
+    background-color: #800080; /* Purple color */
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 10px;
+    font-size: 1.25em;
+    transition: all 0.3s ease;
+}
+
+#homeBtn:hover {
+    background-color: #4B0082; /* Darker purple on hover */
+    transform: scale(1.05);
+}
+#loadingScreen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, #4B0082, #800080);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+}
+
+#loadingImage {
+    width: 150px;
+    margin-bottom: 20px;
+}
+
+#logoImage {
+    margin-right: 10px;
+}
+#loadingImage, #logoImage {
+    filter: opacity(0.9) drop-shadow(0 0 10px #800080);
+    mix-blend-mode: multiply;
+}
